@@ -132,5 +132,12 @@ ceo = CEO(
 )
 ceo.print_employees()
 
+
 result = ceo.salary_by_department()
 print(result)
+
+
+# Khi code chương trình:
+# 1. Đối tượng là gì? Student
+# 2. THuộc tính là gì? Tên, mã sinh viên, Lớp
+# 3. Hành động là gì? Tính điểm trung bình, Kiểm tra đậu/rớt, In thông tin 
