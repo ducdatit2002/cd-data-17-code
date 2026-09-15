@@ -1,0 +1,53 @@
+Hệ thống bán hàng:
+
+-> 1. Login 
+-> 2. Get orders (Lấy hiển thị đơn hàng) 
+-> 3. Tính tiền
+-> 4. Tính lợi nhuận 
+-> 5. Báo cáo kết quả bán hàng 
+-> 6. Gửi báo cáo cho Giám đốc 
+
+Hệ thống công ty nhận 1000 CV nhân sự:
+-> 1. Đọc CV () -> def doc_cv():
+-> 2. Trích xuất thông tinh -> def trich_xuat_thong_tin():
+-> 3. Chuẩn hóa thông tin -> def chuan_hoa_thong_tin():
+-> 4. Lưu Excel -> def luu_excel():
+
+=> Muốn lưu vào cơ sở dữ liệu SQL (Thay database)
++ Không đổi: Đọc CV, Trích xuất thông tin, Chuẩn hóa dữ liệu
+-> Chỉ đổi phần lưu excel -> lưu database 
+
+Hệ thống báo cáo doanh thu tự động -> phải làm sao? 
+-> 1. Load dữ liệu doanh thu -> def load_sales_data():
+-> 2. Làm sạch dữ liệu -> def clean_sales_data():
+-> 3. Tính toán doanh thu -> def calculate_sales():
+-> 4. Tạo báo cáo doanh thu -> def create_sales_report():
+-> 5. Gửi email -> def send_email():
+
+
+Lưu ý khi code hàm:
+- bắt đầu: tôi đang giải quyết vấn đề gì? 
+- trước khi code: 
++ Hàm này làm gì? -> Tính lợi nhuận
++ Hàm cần dữ liệu gì? -> Doanh thu & Chi phí
++ Thuật toán là gì? -> Lợi nhuận = Doanh thu - Chi phí
++ Kết quả là gì? -> Lợi nhuận
++ Kết quả có cần dùng tiếp không? 
+
+
+Một số lỗi thường gặp khi code hàm 
++ Lỗi 1: khai báo hàm nhưng không gọi?
+def hello():
+    print("Hello")
+
++ Lỗi 2: Nhầm print với return 
+
++ Lỗi 3: Gọi biến local ở ngoài hàm 
+def demo():
+    x = 10
+print(x)
+
+Hàm -> Tư duy theo IPO 
+
+
+lens(), print(), input() -> cũng là hàm trong python 
