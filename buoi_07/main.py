@@ -31,6 +31,6 @@ if os.path.exists(excel_file):
 
         row_num += 1
     workbook.save(new_file)
+    print("Đã lưu file thành công")
 else:
-    print("File excel đã lưu thành công")
-    
+    print("File không tồn tại")
