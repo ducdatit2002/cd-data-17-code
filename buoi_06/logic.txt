@@ -1,0 +1,50 @@
+START
+  ↓
+Xác định tên file Excel
+  ↓
+File có tồn tại?
+  ↓
+┌───────────────┬────────────────┐
+│ Có            │ Không          │
+│               │                │
+│ Mở file cũ    │ Tạo file mới   │
+│               │                │
+│ Lấy worksheet │ Tạo worksheet  │
+│               │ Tạo header     │
+└───────────────┴────────────────┘
+            ↓
+      Nhập người dùng
+            ↓
+        Nhập họ tên
+            ↓
+       Nhập ngày sinh
+            ↓
+         Nhập email
+            ↓
+      Email hợp lệ?
+       ↙         ↘
+    Không         Có
+      ↓            ↓
+  Nhập lại      Đi tiếp
+                   ↓
+              Nhập phone
+                   ↓
+             Phone hợp lệ?
+              ↙        ↘
+           Không        Có
+             ↓           ↓
+          Nhập lại    Đi tiếp
+                         ↓
+                   Nhập công việc
+                         ↓
+                   Tổng hợp dữ liệu
+                         ↓
+                  Append vào Excel
+                         ↓
+                     Save file
+                         ↓
+                   Muốn nhập tiếp?
+                     ↙        ↘
+                   Có          Không
+                    ↓             ↓
+               Quay lại        STOP

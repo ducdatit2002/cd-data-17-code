@@ -48,7 +48,7 @@ while True:
         dung_dinh_dang_phone = validate_phone(so_dien_thoai)
 
         if dung_dinh_dang_phone:
-            break
+            break   
         else: 
             print("Số điện thoại không hợp lệ, có ký tự lạ.")
             print("Vui lòng nhập lại số điện thoại")
