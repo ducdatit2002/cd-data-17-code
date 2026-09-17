@@ -7,7 +7,7 @@ excel_file = "user_information.xlsx"
 # Logic: Có file -> load_workbook()
 # Logic: Chưa có file -> Workbook()
 if os.path.exists(excel_file):
-    workbook = openpyxl.load_workbook() # Mở workbook đã tồn tại
+    workbook = openpyxl.load_workbook(excel_file) # Mở workbook đã tồn tại
     worksheet = workbook.active
 else:
     # 3 bước tạo file excel: Tạo Workbook, Lấy Worksheet, Đặt tên Worksheet
@@ -25,20 +25,30 @@ else:
     ]
     worksheet.append(headers)
 
-# Nhập 5 trường thông tin
-ho_ten = input("Nhập họ tên: ")
-ngay_sinh = input("Nhập ngày sinh: ")
-email = input("Nhập Email: ")
-so_dien_thoai = input("Nhập số điện thoại: ")
-cong_viec = input("Nhập công việc:")
+# Nhập nhiều người dùng
+while True:
+    print("\n Nhập thông tin người dùng vào đây")
 
-# Dữ liệu người dùng
-user_data = [
-    ho_ten,
-    ngay_sinh,
-    email,
-    so_dien_thoai,
-    cong_viec
-]
-worksheet.append(user_data)
-workbook.save(excel_file)
+    # Nhập 5 trường thông tin
+    ho_ten = input("Nhập họ tên: ")
+    ngay_sinh = input("Nhập ngày sinh: ")
+    email = input("Nhập Email: ")
+    so_dien_thoai = input("Nhập số điện thoại: ")
+    cong_viec = input("Nhập công việc:")
+
+    # Dữ liệu người dùng
+    user_data = [
+        ho_ten,
+        ngay_sinh,
+        email,
+        so_dien_thoai,
+        cong_viec
+    ]
+    worksheet.append(user_data)
+    workbook.save(excel_file)
+    print("Đã lưu thông tin thành công")
+
+    tiep_tuc = input("Bạn có muốn tiếp tục ko? (y/n): ").strip().lower()
+    if tiep_tuc != "y":
+        print("Kết thúc chương trình")
+        break
