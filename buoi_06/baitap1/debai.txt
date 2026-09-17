@@ -1,0 +1,15 @@
+Viết chương trình lưu thông tin sinh viên gồm:
+- Mã sinh viên
+- Họ tên
+- Lớp 
+- Email
+- Số điện thoại
+Vào students.xlsx 
+
+1. Nếu file đã có thì mở file cũ. Nếu chưa có thì tạo mới
+2. Email sai định dạng thì bắt nhập lại
+3. Số điện thoại sai thì bắt nhập lại 
+4. Sau mỗi sinh viên hỏi: Bạn có muốn nhập tiếp ko? Y/N
+5. Bổ sung thêm cột Tuổi 
+(Người dùng ko nhập tuổi mà nhập Ngày sinh) -> Chương trình tự tính tuổi 
+

@@ -48,3 +48,33 @@ File có tồn tại?
                    Có          Không
                     ↓             ↓
                Quay lại        STOP
+
+# Một số lỗi thường gặp:
+1. Lỗi chưa cài openpyxl
+
+ModuleNotFoundError:
+No module named 'openpyxl'
+
+2.Lỗi cài package sai môi trường python
+
+Đã pip install openpyxl -> nhưng ko chạy được 
+-> python -m pip install openpyxl
+
+3. Lỗi viết sai Workbook -> workbook
+
+4. Lỗi Gọi phương thức nhưng ko có ()
+openpyxl.Workbook -> Lỗi
+
+5. Lỗi viết active() 
+worksheet = workbook.active -> Thiếu () 
+
+6. Lỗi quên lưu Workbook 
+workbook.save(excel_file)
+
+7. Đang mở file -> ko thấy được dữ liệu
+
+Tư duy CRUD
+- Create 
+- Read
+- Update
+- Delete 
