@@ -4,9 +4,7 @@ import openpyxl
 from ham_phu import *
 excel_file = "user_information.xlsx"
 
-# Kiểm tra file "user_information.xlsx" đã tồn tại chưa?
-# Logic: Có file -> load_workbook()
-# Logic: Chưa có file -> Workbook()
+# 1. Đọc hoặc tạo file excel 
 if os.path.exists(excel_file):
     workbook = openpyxl.load_workbook(excel_file) # Mở workbook đã tồn tại
     worksheet = workbook.active
@@ -26,15 +24,35 @@ else:
     ]
     worksheet.append(headers)
 
-# Nhập nhiều người dùng
+# 2. Cho phép nhập nhiều người dùng
 while True:
     print("\n Nhập thông tin người dùng vào đây")
 
     # Nhập 5 trường thông tin
     ho_ten = input("Nhập họ tên: ")
     ngay_sinh = input("Nhập ngày sinh: ")
-    email = input("Nhập Email: ")
-    so_dien_thoai = input("Nhập số điện thoại: ")
+
+    # Xử lý validate email 
+    while True: 
+        email = input("Nhập Email: ")
+        dung_dinh_dang_email = validate_email(email) # Gọi hàm validate ở ham_phu
+
+        if dung_dinh_dang_email:
+            break
+        else: 
+            print("Email không hợp lệ, do có ký tự lạ.")
+            print("Vui lòng nhập lại email")
+
+    while True: 
+        so_dien_thoai = input("Nhập số điện thoại: ")
+        dung_dinh_dang_phone = validate_phone(so_dien_thoai)
+
+        if dung_dinh_dang_phone:
+            break
+        else: 
+            print("Số điện thoại không hợp lệ, có ký tự lạ.")
+            print("Vui lòng nhập lại số điện thoại")
+        
     cong_viec = input("Nhập công việc:")
 
     # Dữ liệu người dùng
