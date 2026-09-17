@@ -1,0 +1,24 @@
+Cập nhập dữ liệu trong Excel 
+- Nguyên tắc 1: Không xử lý trực tiếp trên file gốc 
+=> File gốc -> Xử lý bằng Python -> Lưu thành file mới 
+
+
+Pricing Plan ID:
+1. Gói Cơ bản -> Light
+2. Gói Hội viên -> Advance
+3. Gói VIP -> Premium
+
+- Thư viện openpyxl
+- Vòng lặp 
+- Câu điều kiện if, elif
+
+Logic thực hiện:
+1. Mở file Excel
+2. Chọn worksheet cần xử lý 
+3. Thêm cột pricing Plan
+4. Bắt đầu từ hàng dữ liệu đầu tiên 
+5. Đọc Pricing Plan ID
+6. Kiểm tra ID
+7. Ghi tên Pricing Plan tương ứng 
+8. Chuyển sang hàng tiếp theo
+9. Sau khi xử lý thì lưu thành file mới. 
