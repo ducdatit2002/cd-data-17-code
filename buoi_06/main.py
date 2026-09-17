@@ -1,21 +1,29 @@
+import os 
 import openpyxl 
 
 excel_file = "user_information.xlsx"
 
-# 3 bước tạo file excel: Tạo Workbook, Lấy Worksheet, Đặt tên Worksheet
-workbook = openpyxl.Workbook()
-worksheet = workbook.active
-worksheet.title = "Thông tin người dùng"
+# Kiểm tra file "user_information.xlsx" đã tồn tại chưa?
+# Logic: Có file -> load_workbook()
+# Logic: Chưa có file -> Workbook()
+if os.path.exists(excel_file):
+    workbook = openpyxl.load_workbook() # Mở workbook đã tồn tại
+    worksheet = workbook.active
+else:
+    # 3 bước tạo file excel: Tạo Workbook, Lấy Worksheet, Đặt tên Worksheet
+    workbook = openpyxl.Workbook()
+    worksheet = workbook.active
+    worksheet.title = "Thông tin người dùng"
 
-# Lưu 5 thông tin của nhân viên: Họ tên, Ngày sinh, Email, SĐT, Công việc 
-headers = [
-    "Họ và tên",
-    "Ngày sinh",
-    "Email",
-    "Số điện thoại",
-    "Công việc"
-]
-worksheet.append(headers)
+    # Lưu 5 thông tin của nhân viên: Họ tên, Ngày sinh, Email, SĐT, Công việc 
+    headers = [
+        "Họ và tên",
+        "Ngày sinh",
+        "Email",
+        "Số điện thoại",
+        "Công việc"
+    ]
+    worksheet.append(headers)
 
 # Nhập 5 trường thông tin
 ho_ten = input("Nhập họ tên: ")
