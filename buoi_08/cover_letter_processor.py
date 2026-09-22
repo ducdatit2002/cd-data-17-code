@@ -37,4 +37,14 @@ class CoverLetterProcessor:
             self.ws.title = "Thông tin người dùng"
             self.ws.append(self.headers)
 
-            
+    # Phương thức 2: Read Docx
+    def read_docx(self, file_path):
+        doc = Document(file_path)
+
+        doc_content = [
+            paragraph.text
+            for paragraph in doc.paragraphs
+        ]
+
+        doc_full = "\n".join(doc_content)
+        return doc_full
