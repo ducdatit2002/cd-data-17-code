@@ -133,3 +133,25 @@ class CoverLetterProcessor:
         # B5: Trích xuất thông tin
         # B6: Đưa dữ liệu vào excel
         # B7: Lưu excel 
+
+# Bài tập mở rộng:
+# 1. Thêm cột "Tên file" để biết dữ liệu đã đến hồ sơ nào
+# 2. Nếu một trường không tìm thấy thì ghi "Không tìm thấy"
+# 3. In ra số file đã xử lý thành công
+# 4. In ra số file bị lỗi
+# 5. Tự động điều chỉnh độ rộng cột trong excel
+# 6. Dùng try/except để file lỗi ko làm ctrinh dừng lại 
+
+
+# Variable
+# List
+# Dictionary
+# For
+# IF
+# Function
+# Class
+# Object
+# Attribute
+# Method
+
+# Tư duy: Dữ liệu vào -> Đọc xử lý -> Xác định thông tin -> Trích xuất -> Chuẩn hóa -> Lưu dữ liệu
