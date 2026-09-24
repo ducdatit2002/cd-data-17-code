@@ -27,14 +27,24 @@ class CoverLetterProcessor:
         ]
 
         self.patterns = {
-            "Họ và tên": r"Họ và tên\s*:?\s*(.*?)\s*Nam/Nữ",
-            "Giới tính": r"Nam/Nữ\s*:?\s*(.*?)\s*Sinh ngày",
-            "Ngày sinh": r"Sinh ngày\s*:?\s*(.*?)\s*Nơi sinh",
-            "Nơi sinh": r"Nơi sinh\s*:?\s*(.*?)\s*Nguyên quán",
-            "Nguyên quán": r"Nguyên quán\s*:?\s*(.*?)\s*Hộ khẩu",
-            "Hộ khẩu thường trú": r"Hộ khẩu.*?:?\s*(.*?)\s*Chỗ ở",
-            "Chỗ ở hiện nay": r"Chỗ ở.*?:?\s*(.*?)\s*(?:Điện thoại|Số điện thoại)",
-            "Điện thoại": r"(?:Điện thoại|Số điện thoại)\s*:?\s*([0-9+\s.-]+)"
+            "Họ và tên": r"Họ và tên\s*:\s*(.*?)\s+Nam/Nữ\s*:",
+            
+            "Giới tính": r"Nam/Nữ\s*:\s*([^\n]+)",
+            
+            "Ngày sinh": r"Sinh ngày\s*:\s*(.*?)\s+Nơi sinh\s*:",
+            
+            "Nơi sinh": r"Nơi sinh\s*:\s*([^\n]+)",
+            
+            "Nguyên quán": r"Nguyên quán\s*:\s*([^\n]+)",
+            
+            "Hộ khẩu thường trú":
+                r"Nơi đăng ký hộ khẩu thường trú\s*:\s*([^\n]+)",
+            
+            "Chỗ ở hiện nay":
+                r"Chỗ ở hiện nay\s*:\s*([^\n]+)",
+            
+            "Điện thoại":
+                r"Điện thoại(?: liên hệ)?\s*:\s*([^\n]+)"
         }
     # Phương thức 1: Khởi tạo, mở excel -> initialize_excel()
     def initialize_excel(self):
@@ -62,19 +72,23 @@ class CoverLetterProcessor:
 
     # Phương thứ 3: Trích xuất thông tin 
     def extract_info(self, text):
-        info = {} # tạo được 1 dictionary cụ thể
+        info = {}
 
-        for key in self.patterns:
+        for key, pattern in self.patterns.items():
             match = re.search(
-                self.patterns[key],
+                pattern,
                 text,
-                re.MULTILINE 
-                # flag phục vụ việc xử lý văn bản nhiều dòng trong những pattern có liên quan đến đầu và cuối câu
+                re.IGNORECASE
             )
-            if match: 
-                info[key] = match.group(1).strip()
-                # Group(): lấy phần dữ liệu được capture bởi cặp ngoặc
-                # Strip: xử lý khoảng trắng đầu hoặc cuối hoặc dòng dư 
+
+            if match:
+                value = match.group(1).strip()
+                value = re.sub(r"\s+", " ", value)
+
+                info[key] = value
+            else:
+                info[key] = ""
+
         return info
 
     def process_documents(self):
