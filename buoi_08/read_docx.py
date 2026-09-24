@@ -21,4 +21,5 @@ doc_content = [
     for paragraph in doc.paragraphs
 ]
 doc_full = "\n".join(doc_content)
+
 print(doc_full)
