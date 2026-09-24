@@ -76,6 +76,26 @@ class CoverLetterProcessor:
                 # Group(): lấy phần dữ liệu được capture bởi cặp ngoặc
                 # Strip: xử lý khoảng trắng đầu hoặc cuối hoặc dòng dư 
         return info
+
+    def process_documents(self):
+        self.initialize_excel()
+
+        doc_files = os.listdir(self.folder_path) # Lấy danh sách tất cả file bên trong folder
+        for file_name in doc_files:
+            if not file_name.lower().endswith(".docx"):
+                continue
+            file_path = os.path.join(self.folder_path, file_name)
+
+            document_text = self.read_docx(file_path)
+            data = self.extract_info(document_text) # Trả ra dictionary 
+            values = [
+                data.get(header, "") 
+                for header in self.headers
+            ]
+            self.ws.append(values)
+        self.wb.save(self.excel_file)
+        print("Xử lý thành công")        
+
         # {
         # "Họ và tên": "Lê Văn C",
         # "Giới tính": "Nam",
@@ -86,3 +106,16 @@ class CoverLetterProcessor:
         # "Chỗ ở hiện nay": "...",
         # "Điện thoại": "090..."
         # }
+
+        # Khối 1: initialize_excel() -> mở hoặc tạo excel
+        # Khối 2: read_docx() -> đọc word và trả về text
+        # Khối 3: extract_info() -> nhận text -> trích xuất thông tin -> trả về dictionary
+
+        # Pipeline:
+        # B1: Khởi tạo excel
+        # B2: Lấy danh sách file word
+        # B3: Duyệt từng file
+        # B4: Đọc file
+        # B5: Trích xuất thông tin
+        # B6: Đưa dữ liệu vào excel
+        # B7: Lưu excel 
