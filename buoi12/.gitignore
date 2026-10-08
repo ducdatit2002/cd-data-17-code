@@ -1,0 +1,4 @@
+.venv/
+google_service.json
+.env
+__pycache__/

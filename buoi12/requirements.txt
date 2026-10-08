@@ -1,0 +1,12 @@
+pandas>=2.0
+pypdf>=4.0
+Pillow>=10.0 # dùng để xử lý ảnh
+openpyxl>=3.1 # dùng để thao tác với file excel
+reportlab>=4.0 # 
+PyYAML>=6.0
+gspread>=6.0
+google-auth>=2.0
+google-api-python-client>=2.0
+psycopg[binary]>=3.1
+python-dotenv>=1.0 # đọc file .env
+streamlit>=1.30
