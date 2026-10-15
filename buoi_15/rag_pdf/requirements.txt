@@ -1,4 +1,5 @@
 openai
 python-dotenv
-PyMyPDF
 numpy
+PyMuPDF
+streamlit
